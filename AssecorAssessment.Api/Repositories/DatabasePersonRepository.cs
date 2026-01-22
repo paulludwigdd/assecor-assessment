@@ -33,7 +33,7 @@ internal class DatabasePersonRepository(AppDbContext dbContext) : IPersonReposit
         return await dbContext.Persons
             .Include(p => p.Color)
             .Where(p => p.Color != null &&
-                        p.Color.Name.Equals(color, StringComparison.CurrentCultureIgnoreCase))
+                        p.Color.Name.ToLower() == color.ToLower())
             .ToListAsync();
     }
 
