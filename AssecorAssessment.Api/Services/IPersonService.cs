@@ -2,7 +2,7 @@ using AssecorAssessment.Api.Dtos;
 
 namespace AssecorAssessment.Api.Services;
 
-internal interface IPersonService
+public interface IPersonService
 {
     Task<IEnumerable<PersonDto>> GetAllAsync();
     Task<PersonDto> GetByIdAsync(int id);

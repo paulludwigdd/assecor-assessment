@@ -1,6 +1,6 @@
 namespace AssecorAssessment.Api.Dtos;
 
-internal record PersonDto(
+public record PersonDto(
     int Id,
     string Name,
     string Lastname,

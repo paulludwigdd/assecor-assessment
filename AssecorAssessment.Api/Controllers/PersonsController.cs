@@ -6,7 +6,7 @@ namespace AssecorAssessment.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-internal class PersonsController(IPersonService personService) : ControllerBase
+public class PersonsController(IPersonService personService) : ControllerBase
 {
     [HttpGet]
     public async Task<ActionResult<IEnumerable<PersonDto>>> GetAll()
