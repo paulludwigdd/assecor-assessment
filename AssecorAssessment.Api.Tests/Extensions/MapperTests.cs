@@ -2,7 +2,7 @@ using AssecorAssessment.Api.Extensions;
 
 namespace AssecorAssessment.Api.Tests.Extensions;
 
-public class ColorMapperTests
+public class MapperTests
 {
     [Theory]
     [InlineData(1, "Blau")]
@@ -15,7 +15,7 @@ public class ColorMapperTests
     public void MapToColor_MapsKnownColorIds(int colorId, string expectedName)
     {
         // Act
-        var result = ColorMapper.MapToColor(colorId);
+        var result = Mapper.MapToColor(colorId);
 
         // Assert
         Assert.Equal(colorId, result.Id);
@@ -29,7 +29,7 @@ public class ColorMapperTests
     public void MapToColor_ReturnsUnbekanntForUnknownColorIds(int colorId)
     {
         // Act
-        var result = ColorMapper.MapToColor(colorId);
+        var result = Mapper.MapToColor(colorId);
 
         // Assert
         Assert.Equal(colorId, result.Id);

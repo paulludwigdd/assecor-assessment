@@ -3,14 +3,14 @@ using AssecorAssessment.Api.Repositories;
 
 namespace AssecorAssessment.Api.Tests.Repositories;
 
-public class PersonRepositoryTests
+public class CsvPersonRepositoryTests
 {
-    private readonly PersonRepository _repository;
+    private readonly CsvPersonRepository _repository;
 
-    public PersonRepositoryTests()
+    public CsvPersonRepositoryTests()
     {
         var testCsvPath = Path.Combine(AppContext.BaseDirectory, "TestData", "test-persons.csv");
-        _repository = new PersonRepository(testCsvPath);
+        _repository = new CsvPersonRepository(testCsvPath);
     }
 
     [Fact]

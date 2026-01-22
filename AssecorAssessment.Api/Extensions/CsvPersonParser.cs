@@ -1,6 +1,6 @@
 using System.Text;
 using AssecorAssessment.Api.DbModels;
-using static AssecorAssessment.Api.Extensions.ColorMapper;
+using static AssecorAssessment.Api.Extensions.Mapper;
 
 namespace AssecorAssessment.Api.Extensions;
 

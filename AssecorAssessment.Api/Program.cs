@@ -15,7 +15,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var csvFilePath = builder.Configuration["CsvFilePath"] ?? "sample-input.csv";
-builder.Services.AddSingleton<IPersonRepository>(new PersonRepository(csvFilePath));
+builder.Services.AddSingleton<IPersonRepository<CsvPersonRepository>>(new CsvPersonRepository(csvFilePath));
+builder.Services.AddScoped<IPersonRepository<DatabasePersonRepository>, DatabasePersonRepository>();
+
 builder.Services.AddScoped<IPersonService, PersonService>();
 
 var app = builder.Build();

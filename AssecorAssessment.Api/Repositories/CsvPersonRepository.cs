@@ -4,7 +4,7 @@ using static AssecorAssessment.Api.Extensions.CsvPersonParser;
 
 namespace AssecorAssessment.Api.Repositories;
 
-internal class PersonRepository(string csvFilePath) : IPersonRepository
+internal class CsvPersonRepository(string csvFilePath) : IPersonRepository<CsvPersonRepository>
 {
     private readonly List<Person> _persons = ParseFromFile(csvFilePath);
 
@@ -31,5 +31,10 @@ internal class PersonRepository(string csvFilePath) : IPersonRepository
         var persons = _persons.Where(p =>
             p.Color?.Name.Equals(color, StringComparison.OrdinalIgnoreCase) == true);
         return persons;
+    }
+
+    public Task<Person> AddAsync(Person person)
+    {
+        throw new NotSupportedException("Adding persons to CSV is not supported.");
     }
 }

@@ -17,6 +17,16 @@ internal class ExceptionHandlingMiddleware(RequestDelegate next, ILogger<Excepti
             logger.LogWarning(ex, "Person not found: {PersonId}", ex.PersonId);
             await HandleExceptionAsync(context, HttpStatusCode.NotFound, ex.Message);
         }
+        catch (ColorNotFoundException ex)
+        {
+            logger.LogWarning(ex, "Color not found: {ColorId}", ex.ColorId);
+            await HandleExceptionAsync(context, HttpStatusCode.BadRequest, ex.Message);
+        }
+        catch (NotSupportedException ex)
+        {
+            logger.LogWarning(ex, "Operation not supported");
+            await HandleExceptionAsync(context, HttpStatusCode.BadRequest, ex.Message);
+        }
         catch (Exception ex)
         {
             logger.LogError(ex, "An unexpected error occurred");

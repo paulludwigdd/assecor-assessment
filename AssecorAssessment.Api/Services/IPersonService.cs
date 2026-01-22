@@ -4,7 +4,8 @@ namespace AssecorAssessment.Api.Services;
 
 public interface IPersonService
 {
-    Task<IEnumerable<PersonDto>> GetAllAsync();
-    Task<PersonDto> GetByIdAsync(int id);
-    Task<IEnumerable<PersonDto>> GetByColorAsync(string color);
+    Task<IEnumerable<GetPersonDto>> GetAllAsync();
+    Task<GetPersonDto> GetByIdAsync(int id);
+    Task<IEnumerable<GetPersonDto>> GetByColorAsync(string color);
+    Task<GetPersonDto> AddAsync(CreatePersonDto createPersonDto);
 }
