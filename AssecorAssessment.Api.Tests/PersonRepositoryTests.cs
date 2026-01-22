@@ -51,7 +51,7 @@ public class PersonRepositoryTests
 
         // Assert
         var persons = result.ToList();
-        var multiLinePerson = persons[3]; // 4th person (Multi, Line)
+        var multiLinePerson = persons[3]; // 4th person multiline
 
         Assert.Equal("Line", multiLinePerson.Name);
         Assert.Equal("Multi", multiLinePerson.Lastname);
@@ -113,7 +113,7 @@ public class PersonRepositoryTests
     public async Task GetByColorAsync_IsCaseInsensitive()
     {
         // Act
-        var result = await _repository.GetByColorAsync("blau");
+        var result = await _repository.GetByColorAsync("bLaU");
 
         // Assert
         var persons = result.ToList();
